@@ -41,7 +41,7 @@ def train(
 	ts_size = tu.imagenet_size(train_img_path)
 	num_batches = int(float(ts_size) / batch_size)
 
-	wnid_labels, _ = tu.load_imagenet_meta(os.path.join(imagenet_path, 'data/meta.mat'))
+	wnid_labels, _ = tu.load_imagenet_meta(os.path.join(imagenet_path, 'ILSVRC2012_devkit_t12/data/meta.mat'))
 
 	x = tf.placeholder(tf.float32, [None, 224, 224, 3])
 	y = tf.placeholder(tf.float32, [None, 1000])
@@ -134,7 +134,7 @@ def train(
 						
 				# make test and evaluate validation accuracy
 				if step % test_step == 0:
-					val_im, val_cls = tu.read_validation_batch(batch_size, os.path.join(imagenet_path, 'ILSVRC2012_img_val'), os.path.join(imagenet_path, 'data/ILSVRC2012_validation_ground_truth.txt'))
+					val_im, val_cls = tu.read_validation_batch(batch_size, os.path.join(imagenet_path, 'ILSVRC2012_img_val'), os.path.join(imagenet_path, 'ILSVRC2012_devkit_t12/data/ILSVRC2012_validation_ground_truth.txt'))
 					v_a = sess.run(accuracy, feed_dict={x_b: val_im, y_b: val_cls, lr: learning_rate, keep_prob: 1.0})
 					# intermediate time
 					int_time = time.time()
@@ -166,7 +166,7 @@ if __name__ == '__main__':
 	if not os.path.exists(SUMMARY):
 		os.makedirs(SUMMARY)
 
-	IMAGENET_PATH = 'ILSVRC2012'
+	IMAGENET_PATH = '/home/xiaohang/dataset/ImageNet'
 	DISPLAY_STEP = 10
 	TEST_STEP = 500
 	

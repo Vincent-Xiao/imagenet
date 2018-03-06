@@ -30,7 +30,7 @@ def test(
 	"""
 
 	test_images = sorted(os.listdir(os.path.join(imagenet_path, 'ILSVRC2012_img_val')))
-	test_labels = tu.read_test_labels(os.path.join(imagenet_path, 'data/ILSVRC2012_validation_ground_truth.txt'))
+	test_labels = tu.read_test_labels(os.path.join(imagenet_path, 'ILSVRC2012_devkit_t12/data/ILSVRC2012_validation_ground_truth.txt'))
 
 	test_examples = len(test_images)
 	
@@ -77,7 +77,7 @@ if __name__ == '__main__':
 	TOP_K = 5
 	K_PATCHES = 5
 	DISPLAY_STEP = 10
-	IMAGENET_PATH = 'ILSVRC2012'
+	IMAGENET_PATH = '/home/xiaohang/dataset/ImageNet'
 	CKPT_PATH = 'ckpt-alexnet'
 
 	test( 

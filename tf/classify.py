@@ -28,7 +28,7 @@ def classify(
 						validation images, annotations and metadata file
 
 	"""
-	wnids, words = tu.load_imagenet_meta(os.path.join(imagenet_path, 'data/meta.mat'))
+	wnids, words = tu.load_imagenet_meta(os.path.join(imagenet_path, 'ILSVRC2012_devkit_t12/data/meta.mat'))
 
 	# taking a few crops from an image
 	image_patches = tu.read_k_patches(image, k_patches)
@@ -59,7 +59,7 @@ def classify(
 if __name__ == '__main__':
 	TOP_K = 5
 	K_CROPS = 5
-	IMAGENET_PATH = 'ILSVRC2012'
+	IMAGENET_PATH = '/home/xiaohang/dataset/ImageNet'
 	CKPT_PATH = 'ckpt-alexnet'
 
 	image_path = sys.argv[1]
