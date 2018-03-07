@@ -44,7 +44,7 @@ class ImageNetDataset(object):
 			words: list of words (as strings) referring to wnids labels and describing the classes 
 
 		"""
-		meta_path = os.path.join(self.cfg.DATA_PATH, 'data', 'meta.mat')
+		meta_path = os.path.join(self.cfg.DATA_PATH, 'ILSVRC2012_devkit_t12/data/', 'meta.mat')
 		metadata = loadmat(meta_path, struct_as_record=False)
 		
 		# ['ILSVRC2012_ID', 'WNID', 'words', 'gloss', 'num_children', 'children', 'wordnet_height', 'num_train_images']
@@ -75,7 +75,7 @@ class ImageNetDataset(object):
 			paths, labels = zip(*d)
 		
 		else:
-			with open(os.path.join(self.cfg.DATA_PATH, 'data', 'ILSVRC2012_validation_ground_truth.txt')) as f:
+			with open(os.path.join(self.cfg.DATA_PATH, 'ILSVRC2012_devkit_t12/data/', 'ILSVRC2012_validation_ground_truth.txt')) as f:
 				groundtruths = f.readlines()
 			groundtruths = [int(x.strip()) for x in groundtruths]
 

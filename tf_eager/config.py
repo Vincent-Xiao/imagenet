@@ -13,7 +13,7 @@ class Configuration(object):
 		- dataset path
 		...
 	"""
-	DATA_PATH = 'ILSVRC2012'
+	DATA_PATH = '/home/xiaohang/dataset/ImageNet'
 	IMAGENET_MEAN = [123.68, 116.779, 103.939]
 	IMG_SHAPE = [224, 224, 3] # height, width, channels
 	NUM_CLASSES = 1000
